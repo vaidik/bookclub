@@ -1,0 +1,8 @@
+<?php
+
+function book_club_form_alter(&$form, &$form_state, $form_id) {
+  if ($form_id == 'user_login_block') {
+    $form['pass']['#type'] = 'unmask_password';
+  }
+}
+
