@@ -3,6 +3,12 @@
 function book_club_form_alter(&$form, &$form_state, $form_id) {
   if ($form_id == 'user_login_block') {
     $form['pass']['#type'] = 'unmask_password';
+
+    $ua = get_browser($_SERVER['HTTP_USER_AGENT']);
+    if ($ua->browser == 'Firefox' || $ua->browser == 'Default Browser') {
+      $form['pass']['#size'] = 12;
+      $form['name']['#size'] = 12;
+    }
   }
 }
 
